@@ -1,11 +1,71 @@
 body, html {
     margin: 0;
     height: 100%;
+    font-family: 'Work Sans', sans-serif;
+
 
 }
 
+* {
+   /*transition: all 0.4s;*/
+   font-family: 'Work Sans', sans-serif;
 
+}
 
+/* PRE GAME STYLES */
+#greetings{
+  height: 100%;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+#greetings h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+  font-weight: 200;
+  font-family: 'Work Sans', sans-serif;
+
+}
+
+#greetings p {
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 0px;
+
+}
+
+#play {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+	border-radius: 5px;
+}
+
+#play:hover{
+  background:#e0e0e0;
+}
+/* GAME STYLES  */
+
+#game {
+  height: 100%;
+  background-image: url("../img/bgimg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 
 /* *********************** MOBILE ****************************** */
