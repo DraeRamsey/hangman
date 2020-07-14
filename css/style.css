@@ -66,34 +66,95 @@ body, html {
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
+  flex-direction:column;
 
 }
 
 #panel-sm{
   background-color: rgba(0,0,0,0.7);
-   min-width: 100px;
-
-  /* height: 100%; */
-  /* width:10%; */
+  /* min-width: 100px; */
   flex-grow: 1;
+  display: flex;
+  flex-direction: row;
 
+  align-items: center;
+  padding: 5px;
 
 
 }
+
 
 #panel-lg{
   background-color: rgba(0,0,0,0.5);
-    /* height: 100%; */
-      /* width:90%; */
-      flex-grow: 11;
+  flex-grow: 11;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+
 }
 
+#hang-man-img{
+  width: 300px;
+  margin-top: 50px;
+}
+
+
+.btn-row{
+  display: flex;
+
+}
+
+.alpha-btn{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.btn-div{
+  box-sizing: border-box;
+  width: 50px;
+  height: 40px;
+  margin: 2px;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+#guessed-cont{
+  /* border: 3px solid  rgba(255,255,255, 0.5); */
+    width: 116px;
+    padding: 5px;
+    margin: 10px;
+    max-width: 565px;
+    height: 45px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+#btn-container{
+  margin: 20px;
+}
 /* *********************** MOBILE ****************************** */
 @media screen and (max-width: 600px) {
 
 #game{
-  flex-direction:column;
+
 }
 
+#panel-sm{
+  flex-direction: row;
+}
+
+#hang-man-img{
+  width: 185px;
+  margin-top: 30%;
+
+}
+
+.btn-div{
+  width: 30px;
+  height: 30px;
+}
 
 }
