@@ -26,7 +26,7 @@ body, html {
   justify-content:center;
   flex-direction: column;
   align-items: center;
-  transition: all 0.5s;
+  transition: all 0.8s;
 }
 
 #greetings h1 {
@@ -43,7 +43,7 @@ body, html {
 
 }
 
-#play {
+.button {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -54,24 +54,46 @@ body, html {
 	border-radius: 5px;
 }
 
-#play:hover{
+.button:hover{
   background:#e0e0e0;
 }
 /* GAME STYLES  */
 
 #game {
   height: 100%;
-  background-image: url("../img/bgimg.png");
+  background-image: url("../img/bgimg2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  display: flex;
+
 }
 
+#panel-sm{
+  background-color: rgba(0,0,0,0.7);
+   min-width: 100px;
+
+  /* height: 100%; */
+  /* width:10%; */
+  flex-grow: 1;
+
+
+
+}
+
+#panel-lg{
+  background-color: rgba(0,0,0,0.5);
+    /* height: 100%; */
+      /* width:90%; */
+      flex-grow: 11;
+}
 
 /* *********************** MOBILE ****************************** */
 @media screen and (max-width: 600px) {
 
-
+#game{
+  flex-direction:column;
+}
 
 
 }

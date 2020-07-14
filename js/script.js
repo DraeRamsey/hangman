@@ -10,7 +10,7 @@ play_btn.addEventListener('click', function()
 {
     if (playing == false)
     {
-      greetings.style.top = '-100vh';
+      greetings.style.top = '-1500px';
       playing = true;
     }
 
