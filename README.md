@@ -1,2 +1,2 @@
 # hangman
-JavaScript hangman game 
+Hangman game made with JavaScript.

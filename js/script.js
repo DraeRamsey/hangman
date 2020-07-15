@@ -46,7 +46,7 @@ play_btn.addEventListener('click', function()
    }
 });
 
-// NOTE: I based my setKeyboard function off of Stackoverdlow user Ostapische's solution -  https://stackoverflow.com/questions/30616925/creating-26-alphabet-letter-buttons-with-the-for-loop-and-string-fromcharcode
+// NOTE: I based my setKeyboard function off of Stackoverflow user Ostapische's solution -  https://stackoverflow.com/questions/30616925/creating-26-alphabet-letter-buttons-with-the-for-loop-and-string-fromcharcode
 
    function setKeyboard()
 {
