@@ -154,6 +154,22 @@ body, html {
   font-weight: 400;
 
 }
+
+#win-lose-text{
+  font-size: 24px;
+  padding:20px;
+  font-weight: 100;
+  color: white;
+  position: fixed;
+  top: 60%;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 4s ease-in forwards;
+
+}
+
+
 /* *********************** MOBILE ****************************** */
 @media screen and (max-width: 600px) {
 

@@ -7,12 +7,15 @@ const guessed_cont = document.getElementById( "guessed-cont" );
 const dashed_word = document.getElementById('dashed-word');
 const hang_man_img = document.getElementById('hang-man-img');
 const refresh_btn = document.getElementById('refresh-btn');
+const win_lose_text = document.getElementById('win-lose-text');
 
 var playing = false;
-var randWord = "";
+var rand_word = "";
 var guess = 10;
 var wrong = 0;
 var answerArray = [];
+var spaces = "";
+var img_src = "";
 
 const words = [
   "helicopter",
@@ -95,16 +98,17 @@ function setGuessed(letter)
      // console.log(currentLetter);
 
      //if letter is correct, add it to the dashed word
-     if (randWord.includes(currentLetter))
+     if (rand_word.includes(currentLetter))
      {
 
-        for (var i = 0; i < randWord.length; i ++)
+        for (var i = 0; i < rand_word.length; i ++)
         {
-          if (randWord[i] === currentLetter)
+          if (rand_word[i] === currentLetter)
           answerArray[i] = currentLetter;
 
         }
         dashed_word.innerHTML = answerArray.join(" ");
+
       }
 
     //if it's a wrong guess
@@ -114,27 +118,43 @@ function setGuessed(letter)
        //change the guesses left html here
 
        //change picture
-       var img_src = "img/" + wrong + ".png";
-       hang_man_img.src = img_src;
+       updateImg();
      }
 
-// TODO: change to 9
+     // LOSE CLAUSE
      if(wrong > 9)
      {
-      btn_container.classList.remove('is-visible');
+       let message = "Aw snap! The answer was ";
+         winOrLose(message)
 
      }
+
+    // WIN CLAUSE
+  var  word_progress = dashed_word.innerHTML;
+    word_progress = word_progress.replace(/\s+/g, '');
+
+    if(word_progress === rand_word){
+        //win game
+        let message = "You did it! You got ";
+          winOrLose(message)
+    }
+}
+
+function updateImg(){
+  img_src = "img/" + wrong + ".png";
+  hang_man_img.src = img_src;
 }
 
 function setWord()
 {
+  answerArray = [];
   //pick random word
-  randWord = words[Math.floor(Math.random()*words.length)];
-  var randWordIndex = words.indexOf(randWord);
-  console.log(randWord);
+  rand_word = words[Math.floor(Math.random()*words.length)];
+  //var rand_wordIndex = words.indexOf(rand_word);
+  console.log(rand_word);
 
  //replace letters with dashes
-  for (var i = 0; i < randWord.length; i ++)
+  for (var i = 0; i < rand_word.length; i ++)
   {
     answerArray[i] = "_";
   }
@@ -142,17 +162,26 @@ function setWord()
  //join letters with spaces instead of commas
   var space = answerArray.join(" ");
   dashed_word.innerHTML = space;
-
-
 }
 
+function winOrLose(message)
+{
+  btn_container.classList.remove('is-visible');
+  win_lose_text.innerHTML = message + rand_word;
+  win_lose_text.style.opacity = "1";
+  win_lose_text.style.visibility = "visible";
+}
 
 function newGame()
 {
   refresh_btn.addEventListener("click", function()
   {   setKeyboard();
+      setWord();
       wrong = 0;
+      updateImg();
       btn_container.classList.add('is-visible');
+      win_lose_text.style.opacity = "0";
+      win_lose_text.style.visibility = "hidden";
   });
 
   setKeyboard();
