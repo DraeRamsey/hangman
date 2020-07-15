@@ -1,12 +1,31 @@
 'use strict';
 
-var play_btn = document.getElementById('play');
-var greetings = document.getElementById('greetings');
-var btn_container = document.getElementById( "btn-container" );
-var guessed_cont = document.getElementById( "guessed-cont" );
-
+const play_btn = document.getElementById('play');
+const greetings = document.getElementById('greetings');
+const btn_container = document.getElementById( "btn-container" );
+const guessed_cont = document.getElementById( "guessed-cont" );
+const dashed_word = document.getElementById('dashed-word');
+const hang_man_img = document.getElementById('hang-man-img');
+const refresh_btn = document.getElementById('refresh-btn');
 
 var playing = false;
+var randWord = "";
+var guess = 10;
+var wrong = 0;
+var answerArray = [];
+
+const words = [
+  "helicopter",
+  "anaconda",
+  "biscuit",
+  "elephant",
+  "brontosaurus",
+  "unicorn",
+  "happiness",
+  "astronaut",
+  "centaur",
+  "broccoli"
+    ];
 
 
 play_btn.addEventListener('click', function()
@@ -14,7 +33,7 @@ play_btn.addEventListener('click', function()
     if (playing == false)
     {
       greetings.style.top = '-1500px';
-      setKeyboard();
+      newGame();
       playing = true;
     }
 
@@ -29,6 +48,7 @@ play_btn.addEventListener('click', function()
    function setKeyboard()
 {
     var row, letter, button, btn_div;
+    btn_container.innerHTML = "";
 
     for (var i = 65; i <= 90; i++)
     {
@@ -58,6 +78,7 @@ play_btn.addEventListener('click', function()
 //keyboard button click function
 document.addEventListener('click',function(e){
    var target = e.target;
+
    if(target && target.classList.value === 'alpha-btn'){
         setGuessed(target.getAttribute("data-letter"));
         target.style.display = 'none';
@@ -67,12 +88,75 @@ document.addEventListener('click',function(e){
 function setGuessed(letter)
 {
      guessed_cont.innerHTML = guessed_cont.innerHTML + letter;
+     var currentLetter = letter.toLowerCase();
+     console.log(currentLetter);
+
+     // currentLetter = currentLetter.replace(/\s+/g, '');
+     // console.log(currentLetter);
+
+     //if letter is correct, add it to the dashed word
+     if (randWord.includes(currentLetter))
+     {
+
+        for (var i = 0; i < randWord.length; i ++)
+        {
+          if (randWord[i] === currentLetter)
+          answerArray[i] = currentLetter;
+
+        }
+        dashed_word.innerHTML = answerArray.join(" ");
+      }
+
+    //if it's a wrong guess
+     else{
+       wrong ++;
+       guess --;
+       //change the guesses left html here
+
+       //change picture
+       var img_src = "img/" + wrong + ".png";
+       hang_man_img.src = img_src;
+     }
+
+// TODO: change to 9
+     if(wrong > 9)
+     {
+      btn_container.classList.remove('is-visible');
+
+     }
+}
+
+function setWord()
+{
+  //pick random word
+  randWord = words[Math.floor(Math.random()*words.length)];
+  var randWordIndex = words.indexOf(randWord);
+  console.log(randWord);
+
+ //replace letters with dashes
+  for (var i = 0; i < randWord.length; i ++)
+  {
+    answerArray[i] = "_";
+  }
+
+ //join letters with spaces instead of commas
+  var space = answerArray.join(" ");
+  dashed_word.innerHTML = space;
+
+
 }
 
 
 function newGame()
 {
-  //code go here
+  refresh_btn.addEventListener("click", function()
+  {   setKeyboard();
+      wrong = 0;
+      btn_container.classList.add('is-visible');
+  });
+
+  setKeyboard();
+  setWord();
 }
 
 
