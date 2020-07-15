@@ -92,8 +92,7 @@ function setGuessed(letter)
 {
      guessed_cont.innerHTML += letter;
      var currentLetter = letter.toLowerCase();
-     console.log(currentLetter);
-
+    
      if (rand_word.includes(currentLetter))
      {
 
