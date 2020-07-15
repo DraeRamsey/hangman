@@ -90,14 +90,10 @@ document.addEventListener('click',function(e){
 
 function setGuessed(letter)
 {
-     guessed_cont.innerHTML = guessed_cont.innerHTML + letter;
+     guessed_cont.innerHTML += letter;
      var currentLetter = letter.toLowerCase();
      console.log(currentLetter);
 
-     // currentLetter = currentLetter.replace(/\s+/g, '');
-     // console.log(currentLetter);
-
-     //if letter is correct, add it to the dashed word
      if (rand_word.includes(currentLetter))
      {
 
@@ -105,19 +101,14 @@ function setGuessed(letter)
         {
           if (rand_word[i] === currentLetter)
           answerArray[i] = currentLetter;
-
         }
         dashed_word.innerHTML = answerArray.join(" ");
-
       }
 
     //if it's a wrong guess
      else{
        wrong ++;
        guess --;
-       //change the guesses left html here
-
-       //change picture
        updateImg();
      }
 
@@ -126,14 +117,14 @@ function setGuessed(letter)
      {
        let message = "Aw snap! The answer was ";
          winOrLose(message)
-
      }
 
     // WIN CLAUSE
   var  word_progress = dashed_word.innerHTML;
     word_progress = word_progress.replace(/\s+/g, '');
 
-    if(word_progress === rand_word){
+    if(word_progress === rand_word)
+    {
         //win game
         let message = "You did it! You got ";
           winOrLose(message)
@@ -150,15 +141,11 @@ function setWord()
   answerArray = [];
   //pick random word
   rand_word = words[Math.floor(Math.random()*words.length)];
-  //var rand_wordIndex = words.indexOf(rand_word);
-  console.log(rand_word);
-
- //replace letters with dashes
+  //replace letters with dashes
   for (var i = 0; i < rand_word.length; i ++)
   {
     answerArray[i] = "_";
   }
-
  //join letters with spaces instead of commas
   var space = answerArray.join(" ");
   dashed_word.innerHTML = space;
@@ -172,22 +159,19 @@ function winOrLose(message)
   win_lose_text.style.visibility = "visible";
 }
 
+refresh_btn.addEventListener("click", function()
+{   setKeyboard();
+    setWord();
+    wrong = 0;
+    updateImg();
+    btn_container.classList.add('is-visible');
+    win_lose_text.style.opacity = "0";
+    win_lose_text.style.visibility = "hidden";
+    guessed_cont.innerHTML = "";
+});
+
 function newGame()
 {
-  refresh_btn.addEventListener("click", function()
-  {   setKeyboard();
-      setWord();
-      wrong = 0;
-      updateImg();
-      btn_container.classList.add('is-visible');
-      win_lose_text.style.opacity = "0";
-      win_lose_text.style.visibility = "hidden";
-  });
-
   setKeyboard();
   setWord();
 }
-
-
-
-//create keyboard
