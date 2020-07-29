@@ -9,4 +9,8 @@ The hangman images were created using AdobeXD and the background image is from p
 
 With a look so clean and serene you almost forget the subject matter of the game.
 
+![alt text](https://github.com/DraeRamsey/hangman/blob/master/screenshots/mobile-title.png?raw=true)
 ![alt text](https://github.com/DraeRamsey/hangman/blob/master/screenshots/mobile-lose.png?raw=true)
+
+
+
