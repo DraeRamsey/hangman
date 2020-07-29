@@ -139,7 +139,7 @@ body, html {
   transition: all 300ms cubic-bezier(0.335, 0.01, 0.03, 1.3);
 }
 
-#btn-container.is-visible{
+ #btn-container.is-visible{
   margin: 20px;
   display: block;
   opacity: 1;
@@ -161,10 +161,10 @@ body, html {
   font-weight: 100;
   color: white;
   position: fixed;
-  top: 60%;
+  top: 70%;
   text-align: center;
-  opacity: 0;
-  visibility: hidden;
+   opacity: 0;
+   visibility: hidden;
   transition: 4s ease-in forwards;
 
 }
@@ -191,5 +191,32 @@ body, html {
   width: 30px;
   height: 30px;
 }
+
+}
+
+/* Galaxy Fold */
+@media only screen
+   and (max-width : 280px)
+   and (max-height : 653px) {
+
+.btn-row{
+  flex-wrap: wrap;
+}
+
+#greetings{
+  text-align: center;
+}
+}
+
+/* IPhone 5/SE */
+@media only screen
+   and (max-width : 320px)
+   and (max-height : 568px) {
+
+  .btn-div{
+    height:40px;
+    margin:0;
+  }
+
 
 }
