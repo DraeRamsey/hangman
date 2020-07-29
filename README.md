@@ -1,5 +1,6 @@
 # Hangman
 Hangman game made with JavaScript.
+https://draeramsey.github.io/hangman/
 
 I originally made this game as a class assignment.
 
