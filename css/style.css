@@ -11,6 +11,41 @@ body, html {
    font-family: 'Work Sans', sans-serif;
 
 }
+/* main/ footer setup */
+
+footer{
+  z-index: 50;
+  height: 55px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+
+}
+
+.icon, a{
+  z-index:50;
+  cursor:pointer;
+  margin-right: 10px;
+  height: 40px;
+  transition: all .3s ease-in-out;;
+}
+
+.icon:hover{
+  transform: scale(1.09);
+}
+
+
+footer > p:first-of-type{
+font-weight: 200;
+margin-right: 10px;
+color: darkgray;
+}
+/* main/footer setup */
 
 /* PRE GAME STYLES */
 #greetings{
@@ -218,5 +253,10 @@ body, html {
     margin:0;
   }
 
+  #hang-man-img{
+    width: 195px;
+    margin-top: 10%;
+
+  }
 
 }

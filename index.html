@@ -24,27 +24,34 @@
 
   </head>
   <body>
-    <section id="greetings">
-      <h1> Welcome to Hangman! </h1>
-      <p> click to play </p>
-      <button id="play" class="button" > Play</button>
+  
+      <section id="greetings">
+        <h1> Welcome to Hangman! </h1>
+        <p> click to play </p>
+        <button id="play" class="button" > Play</button>
+      </section>
+
+    <section id="game">
+      <div id="panel-sm">
+        <button class="button" id="refresh-btn"> New Game</button>
+        <div id="guessed-cont"></div>
+      </div>
+
+       <div id="panel-lg">
+         <img  id="hang-man-img" src="img/0.png" alt="">
+          <p id="dashed-word"></p>
+         <div id="btn-container" class="is-visible">
+         </div>
+         <p id="win-lose-text">  Hello world</p>
+      </div >
     </section>
 
-  <section id="game">
-    <div id="panel-sm">
-      <button class="button" id="refresh-btn"> New Game</button>
-      <div id="guessed-cont"></div>
-    </div>
-
-     <div id="panel-lg">
-       <img  id="hang-man-img" src="img/0.png" alt="">
-        <p id="dashed-word"></p>
-       <div id="btn-container" class="is-visible">
-       </div>
-       <p id="win-lose-text">  Hello world</p>
-    </div >
-  </section>
-
+  <footer>
+      <p>  made by drae</p>
+      <a href="https://github.com/DraeRamsey"  target="_blank">
+        <img src="img/github.png" alt="" class="icon">
+      </a>
+    </footer>
   <script src="js/script.js"></script>
   </body>
 
