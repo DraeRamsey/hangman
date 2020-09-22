@@ -14,7 +14,6 @@ body, html {
 /* main/ footer setup */
 
 footer{
-  /* z-index: 50; */
   height: 55px;
   display: flex;
   justify-content: flex-end;
@@ -28,7 +27,6 @@ footer{
 }
 
 .icon, a{
-  /* z-index:50; */
   cursor:pointer;
   margin-right: 10px;
   height: 40px;
@@ -61,7 +59,7 @@ color: darkgray;
   justify-content:center;
   flex-direction: column;
   align-items: center;
-  transition: all 0.8s;
+  transition: .9s ease-in-out;
 }
 
 #greetings h1 {
